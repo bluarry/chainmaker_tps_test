@@ -33,6 +33,11 @@ ps: 由于接触的还不够深，若有错误，请指正<br/>
 ![TPS 为 1](./images/20210721_001.png)
 ## 2021.07.21 第二次测试
 经过群里大佬提醒，对相关参数进行调整,TPS达到3k多
+| 参数链接                                                     | 参数说明                                  | 调整前 | 调整后  |
+| ------------------------------------------------------------ | ----------------------------------------- | ------ | ------- |
+| https://docs.chainmaker.org.cn/dev/chainmaker-go-sdk.html#4.1.9 | 4.1.9的InvokeContract接口的withSyncResult | true   | false   |
+| https://git.chainmaker.org.cn/chainmaker/chainmaker-go/-/blob/v1.2.3/config/wx-org1/chainmaker.yml#L47 | max_txpool_size，区块链的交易池           | 50000  | 5000000 |
+
 ![TPS 3K](./images/2021-07-21_12-55-03.png)
 
 
