@@ -1,0 +1,58 @@
+crypto_config:
+  - domain: chainmaker.org
+    host_name: wx-org
+    count: 4                # 如果为1，直接使用host_name，否则添加递增编号
+    #pk_algo: sm2
+    pk_algo: ecc_p256
+    ski_hash: sha256
+    specs: &specs_ref
+      expire_year:  10
+      sans:
+        - chainmaker.org
+        - localhost
+        - 127.0.0.1
+    location: &location_ref
+      country:            CN
+      locality:           Beijing
+      province:           Beijing
+    # CA证书配置
+    ca:
+      location:
+        <<: *location_ref
+      specs:
+        <<: *specs_ref
+    # 节点证书配置
+    node:
+      - type: consensus
+        # 共识节点数量
+        count: 1
+        # 共识节点配置
+        location:
+          <<: *location_ref
+        specs:
+          <<: *specs_ref
+          expire_year:  5
+      - type: common
+        # 普通节点数量
+        count: 1
+        # 普通节点配置
+        location:
+          <<: *location_ref
+        specs:
+          <<: *specs_ref
+          expire_year:  5
+    user:
+      - type: admin
+        # 管理员证书数量
+        count: 1
+        # 管理员证书配置
+        location:
+          <<: *location_ref
+        expire_year:  5
+      - type: client
+        # 普通用户证书数量
+        count: 1
+        # 普通用户证书配置
+        location:
+          <<: *location_ref
+        expire_year:  5
