@@ -97,7 +97,7 @@ func UserContractAssetQuery(client1,client2 *sdk.ChainClient,id bool) string {
 		fmt.Printf("get error: %+v\n",err);
 		return ""
 	}
-	fmt.Printf("QUERY asset contract [%s] resp: %+v\n", method, resp)
+	//fmt.Printf("QUERY asset contract [%s] resp: %+v\n", method, resp)
 
 	err = sdk.CheckProposalRequestResp_ext(resp, true)
 	if err!=nil{

@@ -37,11 +37,14 @@ func Invoke(){
 	//fmt.Printf("hello")
 }
 
+func init(){
+	
+}
 
-
-var Max_Count = 5  //循环次数    每个并发循环次数
-const MAX_CONNECT = 2 //连接网关数  并发数
+var Max_Count = 1000  //循环次数    每个并发循环次数
+const MAX_CONNECT = 10 //连接网关数  并发数
 var wg = sync.WaitGroup{}
+
 
 func invoceChaincode(client1,client2 *sdk.ChainClient){
 	//addr1 := sdkop.UserContractAssetQuery(true)  //true 为node1 ，else node0
@@ -49,7 +52,7 @@ func invoceChaincode(client1,client2 *sdk.ChainClient){
 
 	addr2 := sdkop.UserContractAssetQuery(client1,client2,false) 
 	for i := 0; i < Max_Count; i++ {
-		sdkop.UserContractAssetInvoke(client1,"transfer", "1", addr2, true)
+		sdkop.UserContractAssetInvoke(client1,"transfer", "1", addr2, false) //最后一个参数为是否同步获取交易结果？
 	}
 	wg.Done()
 }
