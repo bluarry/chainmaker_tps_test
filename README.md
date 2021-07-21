@@ -14,5 +14,5 @@
 # 验证过程
 ## 2021.07.21
 测试方案解释：
-通过GoRoutine连接多个ChainClient，多个ChainClient进行并发发起交易,计算这些交易的总用时，最终计算TPS。
+通过GoRoutine连接多个ChainClient，多个ChainClient进行并发发起交易,计算这些交易的总用时，最终计算TPS为1,不太合理。<br/>
 ![](./images/20210721_001.png)
