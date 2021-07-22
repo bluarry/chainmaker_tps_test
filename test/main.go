@@ -7,6 +7,7 @@ import (
 	"sync"
 	"time"
 	"strconv"
+	"flag"
 )
 
 func Init(){
@@ -45,6 +46,11 @@ var Max_Count = 10000  //循环次数    每个并发循环次数
 const MAX_CONNECT = 100 //连接网关数  并发数
 var wg = sync.WaitGroup{}
 
+//0 不需要，1需要
+var winit=flag.Int("init",0,"是否需要初始化(安装链码，注册用户)") 
+var winvoke=flag.Int("invoke",0,"是否需要测试链码调用") 
+var wtest=flag.Int("test",1,"性能测试")
+
 
 func invoceChaincode(client1,client2 *sdk.ChainClient){
 	//addr1 := sdkop.UserContractAssetQuery(true)  //true 为node1 ，else node0
@@ -56,8 +62,8 @@ func invoceChaincode(client1,client2 *sdk.ChainClient){
 	}
 	wg.Done()
 }
-func main(){
 
+func TpsTest(){
 	clients1:=make([]*sdk.ChainClient,MAX_CONNECT)
 	clients2:=make([]*sdk.ChainClient,MAX_CONNECT)
 
@@ -80,4 +86,21 @@ func main(){
 	timeResult := float64((timeEnd-timeStart)/1e6) / 1000.0
 	fmt.Println("Throughput:", timeCount, "Duration:", strconv.FormatFloat(timeResult, 'g', 30, 32)+" s", "TPS:", count/timeResult)
 
+}
+
+
+func main(){
+	flag.Parse()
+	if 1==*winit {
+		Init()
+	}
+	if 1==*winvoke{
+
+		Invoke()
+	}
+	if 1==*wtest{
+		TpsTest()
+	}
+
+	
 }

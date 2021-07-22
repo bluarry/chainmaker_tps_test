@@ -141,7 +141,7 @@ func userContractAssetCreate(client *sdk.ChainClient,
 
 	resp, err := createUserContract(client, admin1, admin2, admin3, admin4,
 		assetContractName, assetVersion, assetByteCodePath, common.RuntimeType_WASMER, kvs, withSyncResult)
-	if !(isIgnoreSameContract && strings.Contains(err.Error(),"Already")) {
+	if !(isIgnoreSameContract && err!=nil&& strings.Contains(err.Error(),"Already")) {
 		if nil!=err{
 			fmt.Printf("%+v %T\n",err,err)
 		}
