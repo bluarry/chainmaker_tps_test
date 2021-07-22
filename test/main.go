@@ -42,7 +42,7 @@ func init(){
 }
 
 var Max_Count = 10000  //循环次数    每个并发循环次数
-const MAX_CONNECT = 10 //连接网关数  并发数
+const MAX_CONNECT = 100 //连接网关数  并发数
 var wg = sync.WaitGroup{}
 
 

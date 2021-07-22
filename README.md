@@ -37,7 +37,18 @@ ps: 由于接触的还不够深，若有错误，请指正<br/>
 | https://docs.chainmaker.org.cn/dev/chainmaker-go-sdk.html#4.1.9 | 4.1.9的InvokeContract接口的withSyncResult | true   | false   |
 | https://git.chainmaker.org.cn/chainmaker/chainmaker-go/-/blob/v1.2.3/config/wx-org1/chainmaker.yml#L47 | max_txpool_size，区块链的交易池           | 50000  | 5000000 |
 
-![TPS 3K](./images/2021-07-21_12-55-03.png)
+## 1k 笔交易测试
+![1k_1](./images/20210722_01.png)
+![1k_2](./images/20210722_02.png)
+![1k_3](./images/20210722_03.png)
+## 1w 笔交易测试
+![1w_1](./images/20210722_04.png)
+![1w_2](./images/20210722_05.png)
+![1w_3](./images/20210722_06.png)
+## 10w 笔交易测试
+![10w_1](./images/20210722_07.png)
+![10w_2](./images/20210722_08.png)
+![10w_3](./images/20210722_09.png)
 
 
 # 验证结论
