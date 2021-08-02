@@ -14,7 +14,7 @@
 <br/>
 此项目针对长安链的性能,进行TPS测试验证
 测试网络为手动生成四节点网络，利用docker单机启动<br/>
-![网络截图](./images/2021-07-21_18-31-49.png)
+![网络截图](./images/network_pic.png)
 ps: 由于接触的还不够深，若有错误，请指正<br/>
 
 # 测试机环境介绍
@@ -26,34 +26,35 @@ ps: 由于接触的还不够深，若有错误，请指正<br/>
 
 
 # 验证过程
-## 2021.07.21 第一次测试
 测试方案解释：
-通过GoRoutine连接多个ChainClient，多个ChainClient进行并发发起交易,计算这些交易的总用时，最终计算TPS为1,不太合理。<br/>
-![TPS 为 1](./images/20210721_001.png)
-## 2021.07.21 第二次测试
-经过群里大佬提醒，对相关参数进行调整,TPS达到3k多
+通过GoRoutine连接多个ChainClient，多个ChainClient进行并发发起交易,计算这些交易的总用时。通过交易的总用时及交易数量计算TPS值<br/>
+## 2021.08.02 16节点性能测试
 | 参数链接                                                     | 参数说明                                  | 调整前 | 调整后  |
 | ------------------------------------------------------------ | ----------------------------------------- | ------ | ------- |
 | https://docs.chainmaker.org.cn/dev/chainmaker-go-sdk.html#4.1.9 | 4.1.9的InvokeContract接口的withSyncResult | true   | false   |
 | https://git.chainmaker.org.cn/chainmaker/chainmaker-go/-/blob/v1.2.3/config/wx-org1/chainmaker.yml#L47 | max_txpool_size，区块链的交易池           | 50000  | 5000000 |
+| https://git.chainmaker.org.cn/chainmaker/chainmaker-go/-/blob/v1.2.3/config/config_tpl/chainconfig/bc_16.yml#L24 |  block_tx_capacity，区块链的交易最大数量           | 5000 | 200(设置太高会导致交易无法进行下去) |
+
 
 ## 1k 笔交易测试
-![1k_1](./images/20210722_01.png)
-![1k_2](./images/20210722_02.png)
-![1k_3](./images/20210722_03.png)
+![1k_1](./images/20210802_01.png)
+![1k_2](./images/20210802_02.png)
+![1k_3](./images/20210802_03.png)
 ## 1w 笔交易测试
-![1w_1](./images/20210722_04.png)
-![1w_2](./images/20210722_05.png)
-![1w_3](./images/20210722_06.png)
+![1w_1](./images/20210802_04.png)
+![1w_2](./images/20210802_05.png)
+![1w_3](./images/20210802_06.png)
 ## 10w 笔交易测试
-![10w_1](./images/20210722_07.png)
-![10w_2](./images/20210722_08.png)
-![10w_3](./images/20210722_09.png)
+![10w_1](./images/20210802_07.png)
+![10w_2](./images/20210802_08.png)
+
 ## 100w 笔交易测试
 由于机器性能限制，存在大量invoke错误及CONNECT_ERROR，结果不可信
+![16_nodes_100wtx_cpu](./images/16nodes_100wtx_cpu.png)
+![16_nodes_100wtx_cpu](./images/16nodes_100wtx_io.png)
 
 # 验证结论
 ## 2021.07.21 
-以上,在没有长安链专用硬件加速的情况下测试得出TPS均值在3300TPS。<br/>
-该结论大于理论上无硬件减速的长安链2000TPS。<br/>
+以上,在没有长安链专用硬件加速的情况下测试得出TPS均值在1000TPS上下。<br/>
+该结论是在16节点网络下测试得出结论，远小于理论上无硬件减速的长安链2000TPS。<br/>
 ps: 该结论可能具有片面性，望指正。
