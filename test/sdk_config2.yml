@@ -1,0 +1,441 @@
+chain_client:
+  # 链ID
+  chain_id: "chain1"
+  # 组织ID
+  org_id: "wx-org2.chainmaker.org"
+  # 客户端用户私钥路径
+  user_key_file_path: "../build/config/node2/certs/user/client1/client1.tls.key"
+  # 客户端用户证书路径
+  user_crt_file_path: "../build/config/node2/certs/user/client1/client1.tls.crt"
+  # 客户端用户交易签名私钥路径(若未设置，将使用user_key_file_path)
+  user_sign_key_file_path: "../build/config/node2/certs/user/client1/client1.sign.key"
+  # 客户端用户交易签名证书路径(若未设置，将使用user_crt_file_path)
+  user_sign_crt_file_path: "../build/config/node2/certs/user/client1/client1.sign.crt"
+
+  nodes:
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "127.0.0.1:12301"
+      # 节点连接数
+      conn_cnt: 10
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      # 信任证书池路径
+      trust_root_paths:
+        - "../build/config/node1/certs/ca/wx-org1.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org2.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org3.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org4.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org5.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org6.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org7.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org8.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org9.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org10.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org11.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org12.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org13.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org14.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org15.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org16.chainmaker.org"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "127.0.0.1:12302"
+      # 节点连接数
+      conn_cnt: 10
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      # 信任证书池路径
+      trust_root_paths:
+        - "../build/config/node1/certs/ca/wx-org1.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org2.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org3.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org4.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org5.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org6.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org7.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org8.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org9.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org10.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org11.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org12.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org13.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org14.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org15.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org16.chainmaker.org"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "127.0.0.1:12303"
+      # 节点连接数
+      conn_cnt: 10
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      # 信任证书池路径
+      trust_root_paths:
+        - "../build/config/node1/certs/ca/wx-org1.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org2.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org3.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org4.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org5.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org6.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org7.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org8.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org9.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org10.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org11.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org12.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org13.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org14.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org15.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org16.chainmaker.org"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "127.0.0.1:12304"
+      # 节点连接数
+      conn_cnt: 10
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      # 信任证书池路径
+      trust_root_paths:
+        - "../build/config/node1/certs/ca/wx-org1.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org2.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org3.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org4.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org5.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org6.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org7.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org8.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org9.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org10.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org11.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org12.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org13.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org14.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org15.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org16.chainmaker.org"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "127.0.0.1:12305"
+      # 节点连接数
+      conn_cnt: 10
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      # 信任证书池路径
+      trust_root_paths:
+        - "../build/config/node1/certs/ca/wx-org1.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org2.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org3.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org4.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org5.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org6.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org7.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org8.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org9.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org10.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org11.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org12.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org13.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org14.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org15.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org16.chainmaker.org"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "127.0.0.1:12306"
+      # 节点连接数
+      conn_cnt: 10
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      # 信任证书池路径
+      trust_root_paths:
+        - "../build/config/node1/certs/ca/wx-org1.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org2.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org3.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org4.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org5.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org6.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org7.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org8.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org9.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org10.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org11.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org12.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org13.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org14.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org15.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org16.chainmaker.org"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "127.0.0.1:12307"
+      # 节点连接数
+      conn_cnt: 10
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      # 信任证书池路径
+      trust_root_paths:
+        - "../build/config/node1/certs/ca/wx-org1.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org2.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org3.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org4.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org5.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org6.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org7.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org8.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org9.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org10.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org11.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org12.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org13.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org14.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org15.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org16.chainmaker.org"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "127.0.0.1:12308"
+      # 节点连接数
+      conn_cnt: 10
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      # 信任证书池路径
+      trust_root_paths:
+        - "../build/config/node1/certs/ca/wx-org1.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org2.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org3.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org4.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org5.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org6.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org7.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org8.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org9.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org10.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org11.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org12.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org13.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org14.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org15.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org16.chainmaker.org"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "127.0.0.1:12309"
+      # 节点连接数
+      conn_cnt: 10
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      # 信任证书池路径
+      trust_root_paths:
+        - "../build/config/node1/certs/ca/wx-org1.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org2.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org3.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org4.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org5.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org6.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org7.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org8.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org9.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org10.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org11.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org12.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org13.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org14.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org15.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org16.chainmaker.org"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "127.0.0.1:12310"
+      # 节点连接数
+      conn_cnt: 10
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      # 信任证书池路径
+      trust_root_paths:
+        - "../build/config/node1/certs/ca/wx-org1.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org2.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org3.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org4.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org5.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org6.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org7.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org8.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org9.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org10.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org11.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org12.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org13.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org14.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org15.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org16.chainmaker.org"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "127.0.0.1:12311"
+      # 节点连接数
+      conn_cnt: 10
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      # 信任证书池路径
+      trust_root_paths:
+        - "../build/config/node1/certs/ca/wx-org1.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org2.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org3.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org4.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org5.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org6.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org7.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org8.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org9.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org10.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org11.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org12.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org13.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org14.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org15.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org16.chainmaker.org"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "127.0.0.1:12312"
+      # 节点连接数
+      conn_cnt: 10
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      # 信任证书池路径
+      trust_root_paths:
+        - "../build/config/node1/certs/ca/wx-org1.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org2.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org3.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org4.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org5.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org6.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org7.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org8.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org9.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org10.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org11.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org12.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org13.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org14.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org15.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org16.chainmaker.org"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "127.0.0.1:12313"
+      # 节点连接数
+      conn_cnt: 10
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      # 信任证书池路径
+      trust_root_paths:
+        - "../build/config/node1/certs/ca/wx-org1.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org2.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org3.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org4.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org5.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org6.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org7.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org8.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org9.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org10.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org11.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org12.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org13.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org14.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org15.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org16.chainmaker.org"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "127.0.0.1:12314"
+      # 节点连接数
+      conn_cnt: 10
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      # 信任证书池路径
+      trust_root_paths:
+        - "../build/config/node1/certs/ca/wx-org1.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org2.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org3.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org4.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org5.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org6.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org7.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org8.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org9.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org10.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org11.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org12.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org13.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org14.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org15.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org16.chainmaker.org"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "127.0.0.1:12315"
+      # 节点连接数
+      conn_cnt: 10
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      # 信任证书池路径
+      trust_root_paths:
+        - "../build/config/node1/certs/ca/wx-org1.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org2.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org3.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org4.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org5.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org6.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org7.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org8.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org9.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org10.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org11.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org12.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org13.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org14.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org15.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org16.chainmaker.org"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "127.0.0.1:12316"
+      # 节点连接数
+      conn_cnt: 10
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      # 信任证书池路径
+      trust_root_paths:
+        - "../build/config/node1/certs/ca/wx-org1.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org2.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org3.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org4.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org5.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org6.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org7.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org8.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org9.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org10.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org11.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org12.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org13.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org14.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org15.chainmaker.org"
+        - "../build/config/node1/certs/ca/wx-org16.chainmaker.org"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+
+  archive:
+    # 数据归档链外存储相关配置
+    type: "mysql"
+    dest: "root:123456:localhost:3306"
+    secret_key: xxx
+
+  rpc_client:
+    # grpc客户端最大接受容量(MB)
+    max_receive_message_size: 16

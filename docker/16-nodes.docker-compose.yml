@@ -1,0 +1,333 @@
+version: '3'
+
+services:
+  node1:
+    container_name: cm-node1
+    hostname: cm-node1
+    image: "chainmakerofficial/chainmaker:v1.2.3"
+    restart: always
+    working_dir: "/chainmaker-go/bin"
+    command: "./chainmaker start -c ../config/wx-org1.chainmaker.org/chainmaker.yml"
+    ports:
+      - "11301:11301"
+      - "12301:12301"
+    volumes:
+      - ../build/config/node1:/chainmaker-go/config/wx-org1.chainmaker.org
+      #- ../log/node1/log:/chainmaker-go/log
+      - node1_data:/chainmaker-go/data
+    networks:
+      chainmaker_net:
+        aliases:      
+          - cm-node1
+        ipv4_address: 172.45.1.11
+  node2:
+    container_name: cm-node2
+    hostname: cm-node2
+    image: "chainmakerofficial/chainmaker:v1.2.3"
+    restart: always
+    working_dir: "/chainmaker-go/bin"
+    command: "./chainmaker start -c ../config/wx-org2.chainmaker.org/chainmaker.yml"
+    ports:
+      - "11302:11302"
+      - "12302:12302"
+    volumes:
+      - ../build/config/node2:/chainmaker-go/config/wx-org2.chainmaker.org
+      # - ../log/node1/log:/chainmaker-go/log
+      - node2_data:/chainmaker-go/data
+    networks:
+      chainmaker_net:
+        aliases:      
+          - cm-node2
+        ipv4_address: 172.45.1.12
+  node3:
+    container_name: cm-node3
+    hostname: cm-node3
+    image: "chainmakerofficial/chainmaker:v1.2.3"
+    restart: always
+    working_dir: "/chainmaker-go/bin"
+    command: "./chainmaker start -c ../config/wx-org3.chainmaker.org/chainmaker.yml"
+    ports:
+      - "11303:11303"
+      - "12303:12303"
+    volumes:
+      - ../build/config/node3:/chainmaker-go/config/wx-org3.chainmaker.org
+      - node3_data:/chainmaker-go/data
+      # - ../log/node1/log:/chainmaker-go/log
+    networks:
+      chainmaker_net:
+        aliases:      
+          - cm-node3
+        ipv4_address: 172.45.1.13
+  node4:
+    container_name: cm-node4
+    hostname: cm-node4
+    image: "chainmakerofficial/chainmaker:v1.2.3"
+    restart: always
+    working_dir: "/chainmaker-go/bin"
+    command: "./chainmaker start -c ../config/wx-org4.chainmaker.org/chainmaker.yml"
+    ports:
+      - "11304:11304"
+      - "12304:12304"
+    volumes:
+      - ../build/config/node4:/chainmaker-go/config/wx-org4.chainmaker.org
+      - node4_data:/chainmaker-go/data
+      # - ../log/node1/log:/chainmaker-go/log
+    networks:
+      chainmaker_net:
+        aliases:      
+          - cm-node4
+        ipv4_address: 172.45.1.14
+  node5:
+    container_name: cm-node5
+    hostname: cm-node5
+    image: "chainmakerofficial/chainmaker:v1.2.3"
+    restart: always
+    working_dir: "/chainmaker-go/bin"
+    command: "./chainmaker start -c ../config/wx-org5.chainmaker.org/chainmaker.yml"
+    ports:
+      - "11305:11305"
+      - "12305:12305"
+    volumes:
+      - ../build/config/node5:/chainmaker-go/config/wx-org5.chainmaker.org
+      - node5_data:/chainmaker-go/data
+      # - ../log/node1/log:/chainmaker-go/log
+    networks:
+      chainmaker_net:
+        aliases:      
+          - cm-node5
+        ipv4_address: 172.45.1.15
+  node6:
+    container_name: cm-node6
+    hostname: cm-node6
+    image: "chainmakerofficial/chainmaker:v1.2.3"
+    restart: always
+    working_dir: "/chainmaker-go/bin"
+    command: "./chainmaker start -c ../config/wx-org6.chainmaker.org/chainmaker.yml"
+    ports:
+      - "11306:11306"
+      - "12306:12306"
+    volumes:
+      - ../build/config/node6:/chainmaker-go/config/wx-org6.chainmaker.org
+      - node6_data:/chainmaker-go/data
+      # - ../log/node1/log:/chainmaker-go/log
+    networks:
+      chainmaker_net:
+        aliases:      
+          - cm-node6
+        ipv4_address: 172.45.1.16
+  node7:
+    container_name: cm-node7
+    hostname: cm-node7
+    image: "chainmakerofficial/chainmaker:v1.2.3"
+    restart: always
+    working_dir: "/chainmaker-go/bin"
+    command: "./chainmaker start -c ../config/wx-org7.chainmaker.org/chainmaker.yml"
+    ports:
+      - "11307:11307"
+      - "12307:12307"
+    volumes:
+      - ../build/config/node7:/chainmaker-go/config/wx-org7.chainmaker.org
+      - node7_data:/chainmaker-go/data
+      # - ../log/node1/log:/chainmaker-go/log
+    networks:
+      chainmaker_net:
+        aliases:      
+          - cm-node7
+        ipv4_address: 172.45.1.17
+  node8:
+    container_name: cm-node8
+    hostname: cm-node8
+    image: "chainmakerofficial/chainmaker:v1.2.3"
+    restart: always
+    working_dir: "/chainmaker-go/bin"
+    command: "./chainmaker start -c ../config/wx-org8.chainmaker.org/chainmaker.yml"
+    ports:
+      - "11308:11308"
+      - "12308:12308"
+    volumes:
+      - ../build/config/node8:/chainmaker-go/config/wx-org8.chainmaker.org
+      - node8_data:/chainmaker-go/data
+      # - ../log/node1/log:/chainmaker-go/log
+    networks:
+      chainmaker_net:
+        aliases:      
+          - cm-node8
+        ipv4_address: 172.45.1.18
+  node9:
+    container_name: cm-node9
+    hostname: cm-node9
+    image: "chainmakerofficial/chainmaker:v1.2.3"
+    restart: always
+    working_dir: "/chainmaker-go/bin"
+    command: "./chainmaker start -c ../config/wx-org9.chainmaker.org/chainmaker.yml"
+    ports:
+      - "11309:11309"
+      - "12309:12309"
+    volumes:
+      - ../build/config/node9:/chainmaker-go/config/wx-org9.chainmaker.org
+      - node9_data:/chainmaker-go/data
+      # - ../log/node1/log:/chainmaker-go/log
+    networks:
+      chainmaker_net:
+        aliases:      
+          - cm-node9
+        ipv4_address: 172.45.1.19
+  node10:
+    container_name: cm-node10
+    hostname: cm-node10
+    image: "chainmakerofficial/chainmaker:v1.2.3"
+    restart: always
+    working_dir: "/chainmaker-go/bin"
+    command: "./chainmaker start -c ../config/wx-org10.chainmaker.org/chainmaker.yml"
+    ports:
+      - "11310:11310"
+      - "12310:12310"
+    volumes:
+      - ../build/config/node10:/chainmaker-go/config/wx-org10.chainmaker.org
+      - node10_data:/chainmaker-go/data
+      # - ../log/node1/log:/chainmaker-go/log
+    networks:
+      chainmaker_net:
+        aliases:      
+          - cm-node10
+        ipv4_address: 172.45.1.20
+  node11:
+    container_name: cm-node11
+    hostname: cm-node11
+    image: "chainmakerofficial/chainmaker:v1.2.3"
+    restart: always
+    working_dir: "/chainmaker-go/bin"
+    command: "./chainmaker start -c ../config/wx-org11.chainmaker.org/chainmaker.yml"
+    ports:
+      - "11311:11311"
+      - "12311:12311"
+    volumes:
+      - ../build/config/node11:/chainmaker-go/config/wx-org11.chainmaker.org
+      - node11_data:/chainmaker-go/data
+      # - ../log/node1/log:/chainmaker-go/log
+    networks:
+      chainmaker_net:
+        aliases:      
+          - cm-node11
+        ipv4_address: 172.45.1.21
+  node12:
+    container_name: cm-node12
+    hostname: cm-node12
+    image: "chainmakerofficial/chainmaker:v1.2.3"
+    restart: always
+    working_dir: "/chainmaker-go/bin"
+    command: "./chainmaker start -c ../config/wx-org12.chainmaker.org/chainmaker.yml"
+    ports:
+      - "11312:11312"
+      - "12312:12312"
+    volumes:
+      - ../build/config/node12:/chainmaker-go/config/wx-org12.chainmaker.org
+      - node12_data:/chainmaker-go/data
+      # - ../log/node1/log:/chainmaker-go/log
+    networks:
+      chainmaker_net:
+        aliases:      
+          - cm-node12
+        ipv4_address: 172.45.1.22
+  node13:
+    container_name: cm-node13
+    hostname: cm-node13
+    image: "chainmakerofficial/chainmaker:v1.2.3"
+    restart: always
+    working_dir: "/chainmaker-go/bin"
+    command: "./chainmaker start -c ../config/wx-org13.chainmaker.org/chainmaker.yml"
+    ports:
+      - "11313:11313"
+      - "12313:12313"
+    volumes:
+      - ../build/config/node13:/chainmaker-go/config/wx-org13.chainmaker.org
+      - node13_data:/chainmaker-go/data
+      # - ../log/node1/log:/chainmaker-go/log
+    networks:
+      chainmaker_net:
+        aliases:      
+          - cm-node13
+        ipv4_address: 172.45.1.23
+  node14:
+    container_name: cm-node14
+    hostname: cm-node14
+    image: "chainmakerofficial/chainmaker:v1.2.3"
+    restart: always
+    working_dir: "/chainmaker-go/bin"
+    command: "./chainmaker start -c ../config/wx-org14.chainmaker.org/chainmaker.yml"
+    ports:
+      - "11314:11314"
+      - "12314:12314"
+    volumes:
+      - ../build/config/node14:/chainmaker-go/config/wx-org14.chainmaker.org
+      - node14_data:/chainmaker-go/data
+      # - ../log/node1/log:/chainmaker-go/log
+    networks:
+      chainmaker_net:
+        aliases:      
+          - cm-node14
+        ipv4_address: 172.45.1.24
+  node15:
+    container_name: cm-node15
+    hostname: cm-node15
+    image: "chainmakerofficial/chainmaker:v1.2.3"
+    restart: always
+    working_dir: "/chainmaker-go/bin"
+    command: "./chainmaker start -c ../config/wx-org15.chainmaker.org/chainmaker.yml"
+    ports:
+      - "11315:11315"
+      - "12315:12315"
+    volumes:
+      - ../build/config/node15:/chainmaker-go/config/wx-org15.chainmaker.org
+      - node15_data:/chainmaker-go/data
+      # - ../log/node1/log:/chainmaker-go/log
+    networks:
+      chainmaker_net:
+        aliases:      
+          - cm-node15
+        ipv4_address: 172.45.1.25
+  node16:
+    container_name: cm-node16
+    hostname: cm-node16
+    image: "chainmakerofficial/chainmaker:v1.2.3"
+    restart: always
+    working_dir: "/chainmaker-go/bin"
+    command: "./chainmaker start -c ../config/wx-org16.chainmaker.org/chainmaker.yml"
+    ports:
+      - "11316:11316"
+      - "12316:12316"
+    volumes:
+      - ../build/config/node16:/chainmaker-go/config/wx-org16.chainmaker.org
+      - node16_data:/chainmaker-go/data
+      # - ../log/node1/log:/chainmaker-go/log
+    networks:
+      chainmaker_net:
+        aliases:      
+          - cm-node16
+        ipv4_address: 172.45.1.26
+
+
+networks:
+  chainmaker_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.45.1.0/16
+
+volumes:
+  node1_data: {}
+  node2_data: {}
+  node3_data: {}
+  node4_data: {}
+  node5_data: {}
+  node6_data: {}
+  node7_data: {}
+  node8_data: {}
+  node9_data: {}
+  node10_data: {}
+  node11_data: {}
+  node12_data: {}
+  node13_data: {}
+  node14_data: {}
+  node15_data: {}
+  node16_data: {}    

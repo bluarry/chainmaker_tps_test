@@ -1,0 +1,249 @@
+#
+# Copyright (C) BABEC. All rights reserved.
+# Copyright (C) THL A29 Limited, a Tencent company. All rights reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+chain_id: chain1    # 链标识
+version: v1.2.0         # 链版本
+sequence: 1             # 配置版本
+auth_type: "identity"   # 认证类型
+
+crypto:
+  hash: SHA256
+
+# 合约支持类型的配置
+contract:
+  enable_sql_support: false
+
+# 交易、区块相关配置
+block:
+  tx_timestamp_verify: true # 是否需要开启交易时间戳校验
+  tx_timeout: 600  # 交易时间戳的过期时间(秒)sync_store: true # 切换存储实现，是否启用异步存储机制
+  block_tx_capacity: 100  # 区块中最大交易数
+  block_size: 10  # 区块最大限制，单位MB
+  block_interval: 10 # 出块间隔，单位:ms
+
+# core模块
+core:
+  tx_scheduler_timeout: 10 #  [0, 60] 交易调度器从交易池拿到交易后, 进行调度的时间
+  tx_scheduler_validate_timeout: 10 # [0, 60] 交易调度器从区块中拿到交易后, 进行验证的超时时间
+
+# snapshot module
+snapshot:
+  enable_evidence: false # enable the evidence support 
+
+# scheduler module
+scheduler:
+  enable_evidence: false # enable the evidence support
+
+#共识配置
+consensus:
+  # 共识类型(0-SOLO,1-TBFT,2-MBFT,3-HOTSTUFF,4-RAFT,10-POW)
+  type: 4
+  # 共识节点列表，组织必须出现在trust_roots的org_id中，每个组织可配置多个共识节点，节点地址采用libp2p格式
+  nodes:
+    - org_id: "wx-org1.chainmaker.org"
+      node_id:
+        - "QmVATHQ7c7HPKNm1GzCih5f8xyexR2FkFGaxEWaqhxWLm2"
+    - org_id: "wx-org2.chainmaker.org"
+      node_id:
+        - "QmeDZ1aL5bucvq6JAuYxXXW67jcgzZxzkYBK9UAWd9uneY"
+    - org_id: "wx-org3.chainmaker.org"
+      node_id:
+        - "QmR9zDvyD21vJcmzv63QzruBrYzQc4Hd7Hn3ycLUaqQra5"
+    - org_id: "wx-org4.chainmaker.org"
+      node_id:
+        - "QmY3WzrsnFtpQcZzzKMmtCHuFN9TSakV3Nn5utoqebBBHY"
+    - org_id: "wx-org5.chainmaker.org"
+      node_id:
+        - "QmenMrBxTcFxs4A8J7Rx45zcCpoQYVPDtnkzxJsFCY7uKU"
+    - org_id: "wx-org6.chainmaker.org"
+      node_id:
+        - "QmZMz73D2G4BBmWtGg69i3cKchXxc9idhAt3jtiqUSnpiF"
+    - org_id: "wx-org7.chainmaker.org"
+      node_id:
+        - "QmPAgEHnL84pEWNTY4evXyhgYiKoygmYripiGQuXqGgiDr"
+    - org_id: "wx-org8.chainmaker.org"
+      node_id:
+        - "QmcGFHsLNtPAiaQVb8QpUTPZQLu6qh38WU1Dxr39q8QZ66"
+    - org_id: "wx-org9.chainmaker.org"
+      node_id:
+        - "Qmet19mmiA6Tht153gLWwqMa2toZW3uZ43kQzuJMQmxV9v"
+    - org_id: "wx-org10.chainmaker.org"
+      node_id:
+        - "QmUr4PBGnA51EM6ZkjBXLhNiikScPjwaTFUsMQdAL7cdih"
+    - org_id: "wx-org11.chainmaker.org"
+      node_id:
+        - "QmbA9vAPQjSXQjwsgQoaH8D3u4vZFFwg6nMV4heMvw5k7h"
+    - org_id: "wx-org12.chainmaker.org"
+      node_id:
+        - "Qme8CoDeFPbkXy91qGCUdSU9D5DMzPtXYziJmKBe73C39J"
+    - org_id: "wx-org13.chainmaker.org"
+      node_id:
+        - "QmWQqrsfnoWJdBJ7rbU9cYXXm7GHJ1Nyb4MVeHanQQZVtJ"
+    - org_id: "wx-org14.chainmaker.org"
+      node_id:
+        - "QmYWeZ1zgF7wui6rXvDZZjMFXcZwqE3TzyRn2C4VkQADNd"
+    - org_id: "wx-org15.chainmaker.org"
+      node_id:
+        - "QmTtGXvBwtGjy33ufupegssTLgeDqisa1XUHwMj3T4sKjg"
+    - org_id: "wx-org16.chainmaker.org"
+      node_id:
+        - "QmcaJDNJiJZ4bf3uQAguhAPB1xuTm8CeezjHsGUsdwDPSN"
+  ext_config: # 扩展字段，记录难度、奖励等其他类共识算法配置
+    - key: aa
+      value: chain01_ext11
+  dpos_config: # DPoS
+    #ERC20合约配置
+    - key: erc20.total
+      value: "{erc20_total}"
+    - key: erc20.owner
+      value: "{org1_peeraddr}"
+    - key: erc20.decimals
+      value: "18"
+    - key: erc20.account:SYSTEM_CONTRACT_DPOS_STAKE
+      value: "{erc20_total}"
+    #Stake合约配置
+    - key: stake.minSelfDelegation
+      value: "2500000"
+    - key: stake.epochValidatorNum
+      value: "{epochValidatorNum}"
+    - key: stake.epochBlockNum
+      value: "10"
+    - key: stake.completionUnbondingEpochNum
+      value: "1"
+    - key: stake.candidate:{org1_peeraddr}
+      value: "2500000"
+    - key: stake.candidate:{org2_peeraddr}
+      value: "2500000"
+    - key: stake.candidate:{org3_peeraddr}
+      value: "2500000"
+    - key: stake.candidate:{org4_peeraddr}
+      value: "2500000"
+    - key: stake.candidate:{org5_peeraddr}
+      value: "2500000"
+    - key: stake.candidate:{org6_peeraddr}
+      value: "2500000"
+    - key: stake.candidate:{org7_peeraddr}
+      value: "2500000"
+    - key: stake.candidate:{org8_peeraddr}
+      value: "2500000"
+    - key: stake.candidate:{org9_peeraddr}
+      value: "2500000"
+    - key: stake.candidate:{org10_peeraddr}
+      value: "2500000"
+    - key: stake.candidate:{org11_peeraddr}
+      value: "2500000"
+    - key: stake.candidate:{org12_peeraddr}
+      value: "2500000"
+    - key: stake.candidate:{org13_peeraddr}
+      value: "2500000"
+    - key: stake.candidate:{org14_peeraddr}
+      value: "2500000"
+    - key: stake.candidate:{org15_peeraddr}
+      value: "2500000"
+    - key: stake.candidate:{org16_peeraddr}
+      value: "2500000"
+    - key: stake.nodeID:{org1_peeraddr}
+      value: "QmVATHQ7c7HPKNm1GzCih5f8xyexR2FkFGaxEWaqhxWLm2"
+    - key: stake.nodeID:{org2_peeraddr}
+      value: "QmeDZ1aL5bucvq6JAuYxXXW67jcgzZxzkYBK9UAWd9uneY"
+    - key: stake.nodeID:{org3_peeraddr}
+      value: "QmR9zDvyD21vJcmzv63QzruBrYzQc4Hd7Hn3ycLUaqQra5"
+    - key: stake.nodeID:{org4_peeraddr}
+      value: "QmY3WzrsnFtpQcZzzKMmtCHuFN9TSakV3Nn5utoqebBBHY"
+    - key: stake.nodeID:{org5_peeraddr}
+      value: "QmenMrBxTcFxs4A8J7Rx45zcCpoQYVPDtnkzxJsFCY7uKU"
+    - key: stake.nodeID:{org6_peeraddr}
+      value: "QmZMz73D2G4BBmWtGg69i3cKchXxc9idhAt3jtiqUSnpiF"
+    - key: stake.nodeID:{org7_peeraddr}
+      value: "QmPAgEHnL84pEWNTY4evXyhgYiKoygmYripiGQuXqGgiDr"
+    - key: stake.nodeID:{org8_peeraddr}
+      value: "QmcGFHsLNtPAiaQVb8QpUTPZQLu6qh38WU1Dxr39q8QZ66"
+    - key: stake.nodeID:{org9_peeraddr}
+      value: "Qmet19mmiA6Tht153gLWwqMa2toZW3uZ43kQzuJMQmxV9v"
+    - key: stake.nodeID:{org10_peeraddr}
+      value: "QmUr4PBGnA51EM6ZkjBXLhNiikScPjwaTFUsMQdAL7cdih"
+    - key: stake.nodeID:{org11_peeraddr}
+      value: "QmbA9vAPQjSXQjwsgQoaH8D3u4vZFFwg6nMV4heMvw5k7h"
+    - key: stake.nodeID:{org12_peeraddr}
+      value: "Qme8CoDeFPbkXy91qGCUdSU9D5DMzPtXYziJmKBe73C39J"
+    - key: stake.nodeID:{org13_peeraddr}
+      value: "QmWQqrsfnoWJdBJ7rbU9cYXXm7GHJ1Nyb4MVeHanQQZVtJ"
+    - key: stake.nodeID:{org14_peeraddr}
+      value: "QmYWeZ1zgF7wui6rXvDZZjMFXcZwqE3TzyRn2C4VkQADNd"
+    - key: stake.nodeID:{org15_peeraddr}
+      value: "QmTtGXvBwtGjy33ufupegssTLgeDqisa1XUHwMj3T4sKjg"
+    - key: stake.nodeID:{org16_peeraddr}
+      value: "QmcaJDNJiJZ4bf3uQAguhAPB1xuTm8CeezjHsGUsdwDPSN"
+
+# 信任组织和根证书
+trust_roots:
+  - org_id: "wx-org1.chainmaker.org"
+    root: "../config/wx-org5.chainmaker.org/certs/ca/wx-org1.chainmaker.org/ca.crt"
+  - org_id: "wx-org2.chainmaker.org"
+    root: "../config/wx-org5.chainmaker.org/certs/ca/wx-org2.chainmaker.org/ca.crt"
+  - org_id: "wx-org3.chainmaker.org"
+    root: "../config/wx-org5.chainmaker.org/certs/ca/wx-org3.chainmaker.org/ca.crt"
+  - org_id: "wx-org4.chainmaker.org"
+    root: "../config/wx-org5.chainmaker.org/certs/ca/wx-org4.chainmaker.org/ca.crt"
+  - org_id: "wx-org5.chainmaker.org"
+    root: "../config/wx-org5.chainmaker.org/certs/ca/wx-org5.chainmaker.org/ca.crt"
+  - org_id: "wx-org6.chainmaker.org"
+    root: "../config/wx-org5.chainmaker.org/certs/ca/wx-org6.chainmaker.org/ca.crt"
+  - org_id: "wx-org7.chainmaker.org"
+    root: "../config/wx-org5.chainmaker.org/certs/ca/wx-org7.chainmaker.org/ca.crt"
+  - org_id: "wx-org8.chainmaker.org"
+    root: "../config/wx-org5.chainmaker.org/certs/ca/wx-org8.chainmaker.org/ca.crt"
+  - org_id: "wx-org9.chainmaker.org"
+    root: "../config/wx-org5.chainmaker.org/certs/ca/wx-org9.chainmaker.org/ca.crt"
+  - org_id: "wx-org10.chainmaker.org"
+    root: "../config/wx-org5.chainmaker.org/certs/ca/wx-org10.chainmaker.org/ca.crt"
+  - org_id: "wx-org11.chainmaker.org"
+    root: "../config/wx-org5.chainmaker.org/certs/ca/wx-org11.chainmaker.org/ca.crt"
+  - org_id: "wx-org12.chainmaker.org"
+    root: "../config/wx-org5.chainmaker.org/certs/ca/wx-org12.chainmaker.org/ca.crt"
+  - org_id: "wx-org13.chainmaker.org"
+    root: "../config/wx-org5.chainmaker.org/certs/ca/wx-org13.chainmaker.org/ca.crt"
+  - org_id: "wx-org14.chainmaker.org"
+    root: "../config/wx-org5.chainmaker.org/certs/ca/wx-org14.chainmaker.org/ca.crt"
+  - org_id: "wx-org15.chainmaker.org"
+    root: "../config/wx-org5.chainmaker.org/certs/ca/wx-org15.chainmaker.org/ca.crt"
+  - org_id: "wx-org16.chainmaker.org"
+    root: "../config/wx-org5.chainmaker.org/certs/ca/wx-org16.chainmaker.org/ca.crt"
+
+# 权限配置（只能整体添加、修改、删除）
+permissions:
+  - resource_name: NODE_ID_UPDATE
+    principle:
+      rule: SELF # 规则（ANY，MAJORITY...，全部大写，自动转大写）
+      org_list: # 组织名称（组织名称，区分大小写）
+      role_list: # 角色名称（role，自动转大写）
+        - admin
+  - resource_name: TRUST_ROOT_UPDATE
+    principle:
+      rule: SELF # 规则（ANY，MAJORITY...，全部大写）
+      org_list: # 组织名称（组织名称）
+      role_list: # 角色名称（role，自动转大写）
+        - admin
+  - resource_name: CONSENSUS_EXT_DELETE
+    principle:
+      rule: MAJORITY
+      org_list:
+      role_list:
+        - admin
+  - resource_name: BLOCK_UPDATE
+    principle:
+      rule: ANY
+      org_list:
+      role_list:
+        - admin
+        - client
+  - resource_name: user_contract_create_method
+    principle:
+      rule: ANY
+      org_list:
+      role_list:
+async_store: true # 切换存储实现，是否启用异步存储机制
